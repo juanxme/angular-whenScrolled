@@ -16,7 +16,7 @@ angular.module('myApplication', ['angular-whenScrolled']);
 ```
 
 * Use the directive by specifying an **whenScrolled** attribute on an element.
-*
+
 ```js
 angular.controller("demo", function ($scope, $http) {
     $scope.users = [];
@@ -32,6 +32,7 @@ angular.controller("demo", function ($scope, $http) {
     $scope.more();
 });
 ```
+* html:
 ```html
 <div ng-controller='demo'>
     <ANY when-scrolled="more()" >
