@@ -1,5 +1,5 @@
-angular-whenScrolled
-====================
+angular-whenScrolled (version 1.0)
+==================================
 
 angular-whenScrolled is a directive that you can use to implement infinite scrolling in your AngularJS applications. 
 (NO requires jQuery to run)
