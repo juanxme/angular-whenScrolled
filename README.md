@@ -37,6 +37,6 @@ angular.controller("demo", function ($scope, $http) {
 <div ng-controller='demo'>
     <ANY when-scrolled="more()" >
     </ANY>
-<div ng-show='loading'>Loading Data ...</div>
+    <div ng-show='loading'>Loading Data ...</div>
 <div>
 ```
