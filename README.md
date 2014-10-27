@@ -24,8 +24,9 @@ angular.module('myApplication', ['angular-whenScrolled']);
 ```js
 angular.controller("demo", function ($scope, $http) {
     $scope.users = [];
-    $scope.loading = true;
+    
     $scope.more = function () {
+        $scope.loading = true;
         $http.get("/app/js/models/users.json").success(function (data) {
             for (user in data.users) {
                 $scope.users.push(user);
