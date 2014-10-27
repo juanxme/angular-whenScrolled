@@ -1,3 +1,4 @@
+//version 1.0
 var mod;
 mod = angular.module('angular-whenScrolled', []);
 mod.directive("whenScrolled", function ($window) {
