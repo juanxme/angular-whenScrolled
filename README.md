@@ -15,8 +15,8 @@ Getting Started
 
 * Use the directive by specifying an **whenScrolled** attribute on an element.
 
-`angular.controller("demo", function ($scope, $http) {`
-    `$scope.users = [];`
+angular.controller("demo", function ($scope, $http) {
+    $scope.users = [];
     `$scope.loading = true;`
     `$scope.more = function () {`
         `$http.get("/app/js/models/users.json").success(function (data) {`
