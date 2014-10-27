@@ -8,8 +8,11 @@ Getting Started
 ---------------
 
 * Download [angular-whenScrolled.js](https://raw.githubusercontent.com/juanxme/angular-whenScrolled/master/angular-whenScrolled.js)
-* Include the script tag on your page
+* Include the script tag on your page:
+
+```html
 <script type='text/javascript' src='path/to/angular-whenScrolled.js'></script>
+```
 * Ensure that your application module specifies **angular-whenScrolled** as a dependency:
 
 ```js
