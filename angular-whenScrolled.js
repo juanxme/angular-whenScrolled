@@ -1,4 +1,4 @@
-//version 1.0
+//version 1.0.1
 var mod;
 mod = angular.module('angular-whenScrolled', []);
 mod.directive("whenScrolled", function ($window) {
@@ -13,7 +13,7 @@ mod.directive("whenScrolled", function ($window) {
                     scope.$apply(attrs.whenScrolled);
                 }
             };
-            angular.element($window).bind('scroll', checkBounds);
+            angular.element($window).bind('scroll load', checkBounds);
         }
     };
 });
