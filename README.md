@@ -25,7 +25,6 @@ angular.module('myApplication', ['angular-whenScrolled']);
 angular.controller("demo", function ($scope, $http) {
     $scope.users = [];
     $scope.cantUsers=0;    
-    $scope.json = {};
     $scope.startList = 0;
     $scope.stopLoadingData = false;
 
