@@ -22,17 +22,26 @@ angular.module('myApplication', ['angular-whenScrolled']);
 * Use the directive by specifying an **whenScrolled** attribute on an element.
 
 ```js
-angular.controller("demo", function ($scope, $http) {
+angular..controller("demo", function ($scope, $http) {
     $scope.users = [];
-    
+    $scope.cantUsers=0;    
+    $scope.json = {};
+    $scope.startList = 0;
+    $scope.stopLoadingData = false;
+
     $scope.more = function () {
-        $scope.loading = true;
-        $http.get("/app/js/models/users.json").success(function (data) {
-            for (user in data.users) {
-                $scope.users.push(user);
-            }
-            $scope.loading = false;
-        });
+        if (!$scope.stopLoadingData) {
+            $http.post("/app/users", {"startList": $scope.startList}).success(function (data) {
+                $scope.cantUsers=data.cantTotalUsers;
+                $scope.loading = true;
+                $scope.stopLoadingData = !(data.users.length > 0);
+                angular.forEach(data.users,function (key) {
+                    $scope.users.push(key);                    
+                });               
+                $scope.startList += 10;
+            });
+        };
+        $scope.loading = false;
     };
     $scope.more();
 });
