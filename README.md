@@ -23,26 +23,26 @@ angular.module('myApplication', ['angular-whenScrolled']);
 
 ```js
 angular.controller("demo", function ($scope, $http) {
-    $scope.users = [];
-    $scope.cantUsers=0;    
+    $scope.items = [];
+    $scope.totalItems=0;    
     $scope.startList = 0;
     $scope.stopLoadingData = false;
 
     $scope.more = function () {
         if (!$scope.stopLoadingData) {
-            $http.post("/app/users", {"startList": $scope.startList}).success(function (data) {
-                $scope.cantUsers=data.cantTotalUsers;
-                $scope.loading = true;
-                $scope.stopLoadingData = !(data.users.length > 0);
-                angular.forEach(data.users,function (key) {
-                    $scope.users.push(key);                    
-                });               
+            $scope.loading = true;
+            $http.post("/app/items", {"startList": $scope.startList}).success(function (data) {
+                $scope.totalItems=data.totalItems;
+                angular.forEach(data.items,function (key) {
+                    $scope.items.push(key);                    
+                });      
+                $scope.stopLoadingData = ($scope.items.length === $scope.totalItems);
                 $scope.startList += 10;
             });
         };
         $scope.loading = false;
     };
-    $scope.more();
+    $scope.more();//twice execute-> controller:load and scroll:load
 });
 ```
 * html:
